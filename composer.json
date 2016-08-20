@@ -15,7 +15,8 @@
         "symfony/config": "^3.1",
         "symfony/console": "^3.1",
         "symfony/yaml": "^3.1",
-        "symfony/finder": "^3.1"
+        "symfony/finder": "^3.1",
+        "composer/composer": "^1.2"
     },
     "autoload": {
         "psr-4": {
@@ -26,5 +27,7 @@
         "psr-4": {
             "TestVendor\\": "bundles/TestVendor"
         }
+    },
+    "require-dev": {
     }
 }
