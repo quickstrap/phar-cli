@@ -1,0 +1,30 @@
+{
+    "name": "quickstrap/phar-cli",
+    "description": "One CLI to rule them all",
+    "type": "project",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Jeremy Giberson",
+            "email": "jeremygiberson@gmail.com"
+        }
+    ],
+    "require": {
+        "symfony/dependency-injection": "^3.1",
+        "symfony/http-kernel": "^3.1",
+        "symfony/config": "^3.1",
+        "symfony/console": "^3.1",
+        "symfony/yaml": "^3.1",
+        "symfony/finder": "^3.1"
+    },
+    "autoload": {
+        "psr-4": {
+            "PharCli\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "TestVendor\\": "bundles/TestVendor"
+        }
+    }
+}
