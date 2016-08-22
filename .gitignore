@@ -1,5 +1,5 @@
 .idea/
-vendor/
-cache/
-logs/
-bundles/
+bin/
+build/*.ini
+package/vendor
+package/bundles/

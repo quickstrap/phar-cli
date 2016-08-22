@@ -12,8 +12,5 @@ use \Composer\Command\RemoveCommand as ComposerRemoveCommand;
 
 class RemoveCommand extends ComposerRemoveCommand
 {
-    public function getComposer($required = true, $disablePlugins = null)
-    {
-        return $this->getApplication()->getComposer();
-    }
+    use ComposerCommandTrait;
 }

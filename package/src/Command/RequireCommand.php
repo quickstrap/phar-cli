@@ -11,9 +11,5 @@ use \Composer\Command\RequireCommand as ComposerRequireCommand;
 
 class RequireCommand extends ComposerRequireCommand
 {
-    public function getComposer($required = true, $disablePlugins = null)
-    {
-        return $this->getApplication()->getComposer();
-    }
-
+    use ComposerCommandTrait;
 }

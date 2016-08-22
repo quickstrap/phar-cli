@@ -3,6 +3,7 @@
 namespace PharCli;
 
 
+use Phar;
 use Symfony\Component\Config\Loader\LoaderInterface;
 use Symfony\Component\HttpKernel\Bundle\BundleInterface;
 use Symfony\Component\HttpKernel\Kernel;
@@ -12,7 +13,7 @@ class ConsoleKernel extends Kernel
 {
     public function __construct()
     {
-        $this->rootDir = __DIR__ . '/../';
+        $this->rootDir = __DIR__ . '/package/';
         parent::__construct('dev',true);
     }
 
@@ -44,6 +45,24 @@ class ConsoleKernel extends Kernel
      */
     public function registerContainerConfiguration(LoaderInterface $loader)
     {
-        $loader->load(__DIR__.'/../config.yml');
+        $loader->load(__DIR__ . '/../config.yml');
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getCacheDir()
+    {
+        $name = basename(Phar::running(false));
+        return sys_get_temp_dir() . DIRECTORY_SEPARATOR . $name . DIRECTORY_SEPARATOR . '/cache/'.$this->environment;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getLogDir()
+    {
+        $name = basename(Phar::running(false));
+        return sys_get_temp_dir() . DIRECTORY_SEPARATOR . $name . DIRECTORY_SEPARATOR . '/logs/'.$this->environment;
     }
 }
